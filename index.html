@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeraMoney - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; padding: 0; overflow-x: hidden; background: black; color: white; }
+    #tsparticles { position: absolute; width: 100%; height: 100%; z-index: -3; }
+    canvas#stars, canvas#shooting-star {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -2;
+    }
+  </style>
+  <style>
+    @keyframes popCheck {
+      0% {
+        opacity: 0;
+        transform: scale(0.7) rotate(-30deg);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(10deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+  
+    .checkmark-animate {
+      display: inline-block;
+      animation: popCheck 0.6s ease-out forwards;
+    }
+  </style>
+  <style>
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .animate-fade-up {
+      animation: fadeUp 0.8s ease forwards;
+    }
+  </style>
+  <style>
+    @keyframes moveStars {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 1000px 1000px;
+      }
+    }
+  
+    .animate-moveStars {
+      background-size: 150% 150%;
+      animation: moveStars 60s linear infinite;
+    }
+  
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .animate-fade-in-up {
+      animation: fadeInUp 1s ease-out both;
+    }
+  
+    .animate-fade-in {
+      animation: fadeInUp 1.2s ease-out both;
+    }
+  </style>
+  <style>
+    @keyframes glowText {
+      0% { text-shadow: 0 0 0px #ec4899; }
+      50% { text-shadow: 0 0 12px #ec4899, 0 0 24px #ec4899; }
+      100% { text-shadow: 0 0 0px #ec4899; }
+    }
+    .animate-glow {
+      animation: glowText 1.5s ease-in-out infinite;
+    }
+    </style>
+    <style>
+      /* Background pattern (optional — or use star image) */
+      .bg-stars {
+        background-image: radial-gradient(white 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      
+      /* Twinkle animation */
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.25; }
+      }
+      .animate-twinkle {
+        animation: twinkle 4s ease-in-out infinite;
+      }
+      
+      /* Optional glow text from earlier */
+      @keyframes glowText {
+        0% { text-shadow: 0 0 0px #ec4899; }
+        50% { text-shadow: 0 0 12px #ec4899, 0 0 24px #ec4899; }
+        100% { text-shadow: 0 0 0px #ec4899; }
+      }
+      .animate-glow {
+        animation: glowText 1.5s ease-in-out infinite;
+      }
+      </style>
+      <style>
+        .twinkle-text {
+          animation: twinkle 4s ease-in-out infinite;
+        }
+      
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.4; text-shadow: 0 0 4px #ec4899, 0 0 10px #8b5cf6; }
+          50% { opacity: 1; text-shadow: 0 0 10px #ec4899, 0 0 20px #8b5cf6; }
+        }
+      </style>
+  
+  
+</head>
+<body class="relative">
+
+<!-- Animated Stars and Shooting Stars -->
+<canvas id="stars"></canvas>
+<canvas id="shooting-star"></canvas>
+
+<!-- Colorful Particles -->
+<div id="tsparticles"></div>
+
+<!-- Navbar -->
+<header class="fixed top-0 w-full bg-black bg-opacity-70 z-50 shadow-md">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <div class="flex items-center gap-2">
+      <img src="R_S1byM4_400x400.jpg" alt="VeraMoney Logo" class="w-10 h-10 rounded-full object-cover">
+      <span class="text-2xl font-bold text-pink-400">VeraMoney</span>
+    </div>
+    
+    <div class="hidden md:flex items-center space-x-6">
+      <ul class="flex space-x-6 text-purple-300">
+        <li><a href="#home" class="hover:text-pink-400">Home</a></li>
+        <li><a href="#why" class="hover:text-pink-400">Why VeraMoney</a></li>
+        <li><a href="#tokenomics" class="hover:text-pink-400">Tokenomics</a></li>
+        <li><a href="#roadmap" class="hover:text-pink-400">Roadmap</a></li>
+        <li><a href="#community" class="hover:text-pink-400">Community</a></li>
+        <li><a href="#about" class="hover:text-pink-400">About Us</a></li>
+      </ul>
+      
+      <!-- Glowing Button -->
+      <a href="#moonshot" 
+      class="ml-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2.5 px-5 rounded-full text-sm shadow-lg hover:shadow-pink-400/50 transition duration-300">
+      🚀 Moonshot
+      </a>
+
+    </div>
+  </nav>
+</header>
+
+
+<!-- Hero Section -->
+<section id="home" class="relative h-screen w-full overflow-hidden">
+  <!-- Background GIF -->
+  <div class="absolute inset-0 z-0">
+    <img src="chi.gif"
+         alt="Background Visual"
+         class="w-full h-full object-cover opacity-30" />
+  </div>
+
+  <!-- Overlay Content -->
+  <div class="relative z-10 flex flex-col justify-center items-center text-center h-full px-6">
+    <h1 class="text-5xl md:text-7xl font-bold text-pink-400 mb-6 drop-shadow-xl">The Awakening Begins</h1>
+    <p class="text-xl md:text-2xl text-purple-200 mb-4 drop-shadow-lg">
+      A new era of digital enlightenment.<br>
+      Powered by belief, built on the blockchain.
+    </p>
+    <p class="mt-4 text-lg md:text-xl font-semibold text-purple-300 twinkle-text">
+      Welcome to VeraMoney<br>
+      Join the future of financial freedom and digital enlightenment.
+    </p>
+  </div>
+</section>
+
+<!-- Why Choose VeraMoney Section -->
+<section id="why" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center text-purple-400">Why Choose VeraMoney?</h2>
+    <div class="grid md:grid-cols-4 gap-8 text-center">
+      
+      <div class="p-6 bg-black rounded-xl border border-pink-500 hover:scale-105 transition-transform">
+        <h3 class="text-2xl mb-4 text-pink-400">Decentralized Power</h3>
+        <p class="text-gray-400">Driven by the community, governed by transparency — empowering everyone equally.</p>
+      </div>
+      
+      <div class="p-6 bg-black rounded-xl border border-pink-500 hover:scale-105 transition-transform">
+        <h3 class="text-2xl mb-4 text-pink-400">Secure & Resilient</h3>
+        <p class="text-gray-400">Advanced blockchain security standards ensure your assets are protected 24/7.</p>
+      </div>
+      
+      <div class="p-6 bg-black rounded-xl border border-pink-500 hover:scale-105 transition-transform">
+        <h3 class="text-2xl mb-4 text-pink-400">Borderless Access</h3>
+        <p class="text-gray-400">From anywhere, anytime — VeraMoney makes financial freedom truly global and seamless.</p>
+      </div>
+      
+      <div class="p-6 bg-black rounded-xl border border-pink-500 hover:scale-105 transition-transform">
+        <h3 class="text-2xl mb-4 text-pink-400">Growth with Purpose</h3>
+        <p class="text-gray-400">Built for sustainable wealth creation, empowering holders with real-world impact.</p>
+      </div>
+  
+    </div>
+  </section>
+  
+
+<!-- Tokenomics Section -->
+<section id="tokenomics" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center text-purple-400">Tokenomics</h2>
+  
+    <div class="grid md:grid-cols-2 gap-12 text-center">
+  
+      <div class="p-8 bg-black rounded-2xl border-2 border-pink-500 hover:scale-105 transition-transform">
+        <h3 class="text-3xl text-pink-400 mb-4">Total Supply</h3>
+        <p class="text-2xl text-gray-300">1,000,000,000 VeraCoins</p>
+        <p class="text-gray-400 mt-4">Fair launch. No presale. 100% community owned.</p>
+      </div>
+  
+      <div class="p-8 bg-black rounded-2xl border-2 border-purple-500 hover:scale-105 transition-transform">
+        <h3 class="text-3xl text-purple-400 mb-4">Distribution</h3>
+        <div class="space-y-4 text-gray-300">
+          <p><span class="text-pink-400 font-bold">40%</span> - Liquidity Pool</p>
+          <p><span class="text-pink-400 font-bold">30%</span> - Community Rewards</p>
+          <p><span class="text-pink-400 font-bold">20%</span> - Development Fund</p>
+          <p><span class="text-pink-400 font-bold">10%</span> - Marketing and Partnerships</p>
+        </div>
+      </div>
+  
+    </div>
+  
+    <p class="text-center text-gray-400 mt-12 max-w-3xl mx-auto">Liquidity is locked, ensuring full transparency and security. VeraMoney is built for long-term holders and visionary investors seeking financial enlightenment in the new decentralized world.</p>
+  </section>
+  
+<!-- Roadmap Section -->
+<section id="roadmap" class="py-20 px-6 bg-black">
+  <h2 class="text-4xl font-bold mb-16 text-center text-pink-400">Roadmap</h2>
+
+  <div class="max-w-6xl mx-auto flex flex-col items-center text-center space-y-20">
+
+    <!-- Phase 1 -->
+  <div>
+    <h3 class="text-3xl font-bold text-purple-400 mb-6">Phase 1: Foundation</h3>
+    <ul class="text-lg text-gray-300 space-y-4 text-center">
+      <li><span class="checkmark-animate text-pink-400 font-semibold">✅ Website Launch & Brand Identity</span></li>
+      <li><span class="checkmark-animate text-pink-400 font-semibold">✅ Community Building (Telegram, Twitter, Discord)</span></li>
+      <li>🧠 Smart Contract Development & Deployment</li>
+      <li>🔓 Ownership Renounced — Fully Community-Controlled</li>
+      <li>💧 Initial Liquidity Pool Added on DEX</li>
+      <li>🔥 LP Tokens Burned — Liquidity Locked Forever</li>
+    </ul>
+  </div>
+
+<!-- Phase 2 -->
+<div>
+  <h3 class="text-3xl font-bold text-purple-400 mb-6">Phase 2: Expansion</h3>
+  <ul class="text-lg text-gray-300 space-y-4 text-center">
+    <li>📈 Official Listing on <span class="font-semibold text-white">CoinMarketCap</span></li>
+    <li>📊 Verified Listing on <span class="font-semibold text-white">CoinGecko</span></li>
+    <li>🌐 Formation of Strategic Partnerships with <span class="font-semibold text-white">Top Crypto Influencers</span></li>
+    <li><span class="checkmark-animate text-pink-400 font-semibold">✅ Launch of Targeted Marketing and Viral Growth Campaigns</span></li>
+    <li>💎 Onboarding to <span class="font-semibold text-white">Tier-1 Centralized Exchanges</span> for global liquidity access</li>
+    <li>🛡️ Completion of a <span class="font-semibold text-white">Comprehensive Smart Contract Audit</span> with reinforced security upgrades</li>
+  </ul>
+</div>
+
+
+
+<!-- Phase 3 -->
+<div>
+  <h3 class="text-3xl font-bold text-purple-400 mb-6">Phase 3: Evolution</h3>
+  <ul class="text-lg text-gray-300 space-y-4 text-center">
+    <li>📱 Official Release of <span class="font-semibold text-white">VeraWallet</span> — Secure, Multi-Platform Wallet for Web & Mobile</li>
+    <li>🤝 Expansion of <span class="font-semibold text-white">Global Strategic Alliances</span> across fintech, blockchain, and real-world brands</li>
+    <li>🌍 Integration with <span class="font-semibold text-white">Real-World Payment Systems</span> to bridge crypto with everyday utility</li>
+    <li>🏆 Milestone: Achieve <span class="font-semibold text-pink-400">100,000+ Verified Community Members</span> Worldwide</li>
+  </ul>
+</div>
+
+<!-- Phase Divider Dots -->
+<div class="flex justify-center items-center mt-20 mb-8 space-x-2 animate-pulse">
+  <div class="w-2 h-2 bg-pink-500 rounded-full"></div>
+  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+  <div class="w-2 h-2 bg-pink-500 rounded-full"></div>
+  <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+  <div class="w-2 h-2 bg-pink-500 rounded-full"></div>
+</div>
+
+<!-- Phase N: Moonshot -->
+<div class="text-center max-w-4xl mx-auto">
+  <h3 class="text-3xl font-bold text-pink-400 mb-4 tracking-widest uppercase">Phase N: Moonshot 🚀</h3>
+  <p class="text-gray-400 text-lg mb-6 max-w-2xl mx-auto">
+    Bold. Unpredictable. Powered by the community. <br>
+    The Moonshot phase is where vision meets velocity.
+  </p>
+  <ul class="text-lg text-gray-300 space-y-4">
+    <li>🎁 Reward Mechanisms for Early Supporters — Designed to Recognize Active Participation</li>
+    <li>🌌 Cross-Chain Expansion (BSC, Ethereum, Solana...)</li>
+    <li>🧠 AI-Powered On-Chain Intelligence Dashboard</li>
+    <li>🎮 VeraVerse: Gamified Web3 Experience</li>
+    <li>🚀 Community-Driven Launchpad for Next-Gen Tokens</li>
+    <li>🌐 DAO Governance & Treasury Unlocks</li>
+  </ul>
+   <!-- Whitepaper Coming Soon -->
+   <div class="inline-block cursor-not-allowed bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg animate-pulse">
+    📄 Whitepaper – Coming Soon
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- Final Note -->
+  <div class="text-center mt-20">
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+      VeraMoney is a dynamic journey — new milestones will be shaped by the power of our global community.
+    </p>
+  </div>
+</section>
+
+  
+  
+  
+
+<!-- Community Section -->
+<section id="community" class="py-20 px-6 bg-gradient-to-b from-black via-purple-900 to-black">
+  <h2 class="text-4xl font-bold mb-12 text-center text-pink-400">Our Vibrant Community</h2>
+
+  <!-- <div class="grid md:grid-cols-3 gap-8 text-center max-w-6xl mx-auto">
+
+    <div class="p-8 bg-black rounded-2xl border-2 border-pink-500 hover:scale-105 transition-transform">
+      <h3 class="text-5xl font-bold text-pink-400 mb-4">10K+</h3>
+      <p class="text-xl text-gray-300">Holders Worldwide</p>
+      <p class="text-gray-400 mt-2">Spreading financial freedom across continents.</p>
+    </div>
+
+    <div class="p-8 bg-black rounded-2xl border-2 border-pink-500 hover:scale-105 transition-transform">
+      <h3 class="text-5xl font-bold text-pink-400 mb-4">25K+</h3>
+      <p class="text-xl text-gray-300">Transactions</p>
+      <p class="text-gray-400 mt-2">Fast, secure, decentralized — empowering users.</p>
+    </div>
+
+    <div class="p-8 bg-black rounded-2xl border-2 border-pink-500 hover:scale-105 transition-transform">
+      <h3 class="text-5xl font-bold text-pink-400 mb-4">50+</h3>
+      <p class="text-xl text-gray-300">Strategic Partnerships</p>
+      <p class="text-gray-400 mt-2">Building bridges in the crypto and finance world.</p>
+    </div>
+
+  </div> -->
+
+  <!-- Action Buttons -->
+  <div class="flex flex-col md:flex-row justify-center items-center gap-6 mt-16">
+    <a href="#" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-10 rounded-full animate-pulse text-lg">
+      Join Our Telegram 🚀
+    </a>
+    <a href="https://x.com/0xVeraMoney" 
+    class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-10 rounded-full animate-pulse text-lg"
+    target="_blank" rel="noopener noreferrer">
+    Follow us on Twitter 🐦
+    </a>
+    <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 px-10 rounded-full animate-pulse text-lg">
+      Join Our Discord 🎮
+    </a>
+  </div>
+</section>
+<!-- Moonshot Section -->
+<section id="moonshot" class="relative py-32 px-6 bg-gradient-to-b from-black via-purple-900 to-black text-center overflow-hidden">
+  <!-- Animated Background Accent -->
+  <div class="relative z-10 max-w-4xl mx-auto p-10 rounded-3xl bg-black/40 backdrop-blur-md border-2 border-pink-500 overflow-hidden shadow-xl">
+    <!-- Twinkling Stars Layer -->
+    <div class="absolute inset-0 bg-stars animate-twinkle opacity-10 pointer-events-none z-0"></div>
+  
+    <!-- Main Moonshot Content -->
+    <div class="relative z-10">
+      <div class="animate-bounce text-6xl mb-6">🚀</div>
+      <h2 class="text-5xl font-bold text-pink-400 mb-4 tracking-tight animate-pulse">
+        VeraMoney Moonshot
+      </h2>
+      <p class="text-pink-300 font-bold text-2xl mb-4 animate-glow">Coming Soon...</p>
+      <p class="text-gray-300 text-xl max-w-xl mx-auto leading-relaxed">
+        Launching Soon 🔥
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+  
+<!-- About Section -->
+<section id="about" class="py-20 px-6 bg-gradient-to-b from-black via-purple-900 to-black">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  
+      <!-- Left Side Text -->
+      <div>
+        <h3 class="text-yellow-400 text-xl font-bold mb-4">ABOUT VERA</h3>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          EMPOWERING GLOBAL FINANCIAL FREEDOM
+        </h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          VeraMoney is pioneering a new era of decentralized finance with a strong, vibrant, and rapidly growing community.  
+          Through innovation and inclusivity, we're creating real-world use cases and driving global crypto adoption.
+        </p>
+      </div>
+      <!-- Vera Pillars Section (Right Side of About) -->
+      <div class="grid grid-cols-2 gap-6 animate-fade-up" style="animation-delay: 0.2s;">
+        <div class="bg-black/40 border border-pink-400/40 p-6 rounded-xl text-center shadow-md hover:shadow-pink-500/10 transition duration-300">
+          <h4 class="text-xl text-pink-400 font-semibold mb-2">Decentralization</h4>
+          <p class="text-gray-400 text-sm">Built by the community, governed by trust.</p>
+        </div>
+        <div class="bg-black/40 border border-pink-400/40 p-6 rounded-xl text-center shadow-md hover:shadow-pink-500/10 transition duration-300 delay-100">
+          <h4 class="text-xl text-pink-400 font-semibold mb-2">Transparency</h4>
+          <p class="text-gray-400 text-sm">Open data, secure contracts, verified supply.</p>
+        </div>
+        <div class="bg-black/40 border border-pink-400/40 p-6 rounded-xl text-center shadow-md hover:shadow-pink-500/10 transition duration-300 delay-200">
+          <h4 class="text-xl text-pink-400 font-semibold mb-2">Global Access</h4>
+          <p class="text-gray-400 text-sm">No borders. Vera is for everyone, everywhere.</p>
+        </div>
+        <div class="bg-black/40 border border-pink-400/40 p-6 rounded-xl text-center shadow-md hover:shadow-pink-500/10 transition duration-300 delay-300">
+          <h4 class="text-xl text-pink-400 font-semibold mb-2">Sustainability</h4>
+          <p class="text-gray-400 text-sm">Long-term thinking. Real-world impact.</p>
+        </div>
+      </div>
+
+      <!-- <div class="flex flex-col items-center justify-center text-center border border-pink-400/60 bg-black/30 backdrop-blur-sm p-10 rounded-2xl shadow-lg hover:shadow-pink-500/20 transition duration-300">
+        <div class="text-pink-400 text-4xl mb-4 animate-pulse">📊</div>
+        <h4 class="text-2xl font-bold text-white mb-3">Metrics Dashboard</h4>
+        <p class="text-gray-400 text-lg max-w-sm">
+          Holder stats, transaction insights, and community metrics<br>
+          <span class="text-pink-500 font-bold tracking-wide">Coming Soon...</span>
+        </p>
+      </div> -->
+      
+  
+      <!-- Right Side Stats -->
+      <!-- <div class="grid grid-cols-2 gap-8 text-center">
+        
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/1149/1149168.png" alt="Users" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-3xl font-bold text-pink-400">10K+</h3>
+          <p class="text-gray-300 mt-2">Holders</p>
+        </div>
+  
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/1149/1149164.png" alt="Transactions" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-3xl font-bold text-pink-400">25K+</h3>
+          <p class="text-gray-300 mt-2">Transactions</p>
+        </div>
+  
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Partners" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-3xl font-bold text-pink-400">50+</h3>
+          <p class="text-gray-300 mt-2">Strategic Partners</p>
+        </div>
+  
+        <div>
+          <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png" alt="Community" class="w-16 h-16 mx-auto mb-4">
+          <h3 class="text-3xl font-bold text-pink-400">Global</h3>
+          <p class="text-gray-300 mt-2">Community Reach</p>
+        </div>
+  
+      </div> -->
+  
+    </div>
+  </section>
+
+  
+  
+
+<!-- Footer -->
+<footer class="py-10 px-6 text-center bg-black border-t border-purple-900 mt-20">
+  <p class="text-gray-500">Follow us: Twitter | Telegram | Discord</p>
+  <p class="text-gray-700 mt-4">© 2025 VeraMoney. All rights reserved.</p>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#home" class="fixed bottom-6 right-6 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg animate-bounce">
+  ↑
+</a>
+
+<!-- ParticlesJS Config -->
+<script>
+  tsParticles.load("tsparticles", {
+    particles: {
+      number: { value: 80 },
+      size: { value: 2 },
+      move: { enable: true, speed: 0.5 },
+      color: { value: ["#ec4899", "#8b5cf6", "#6ee7b7", "#facc15"] },
+      links: { enable: true, color: "#ffffff" }
+    }
+  });
+</script>
+
+<!-- Twinkling Stars Script -->
+<script>
+const starsCanvas = document.getElementById('stars');
+const starsCtx = starsCanvas.getContext('2d');
+let stars = [];
+
+function resizeStars() {
+  starsCanvas.width = window.innerWidth;
+  starsCanvas.height = window.innerHeight;
+  stars = Array.from({length: 150}, () => ({
+    x: Math.random() * starsCanvas.width,
+    y: Math.random() * starsCanvas.height,
+    radius: Math.random() * 1.5,
+    alpha: Math.random(),
+    delta: Math.random() * 0.02
+  }));
+}
+resizeStars();
+window.addEventListener('resize', resizeStars);
+
+function drawStars() {
+  starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
+  stars.forEach(star => {
+    star.alpha += star.delta;
+    if (star.alpha <= 0 || star.alpha >= 1) star.delta = -star.delta;
+    starsCtx.beginPath();
+    starsCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    starsCtx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+    starsCtx.fill();
+  });
+}
+setInterval(drawStars, 50);
+</script>
+
+<!-- Shooting Stars Script -->
+<script>
+const shootCanvas = document.getElementById('shooting-star');
+const shootCtx = shootCanvas.getContext('2d');
+shootCanvas.width = window.innerWidth;
+shootCanvas.height = window.innerHeight;
+
+function shootStar() {
+  const x = Math.random() * shootCanvas.width;
+  const y = Math.random() * shootCanvas.height * 0.5;
+  const length = Math.random() * 80 + 50;
+  const speed = Math.random() * 5 + 5;
+  const size = Math.random() * 2 + 1;
+  shootCtx.beginPath();
+  shootCtx.moveTo(x, y);
+  shootCtx.lineTo(x + length, y + length / 2);
+  shootCtx.strokeStyle = 'white';
+  shootCtx.lineWidth = size;
+  shootCtx.stroke();
+  setTimeout(() => {
+    shootCtx.clearRect(x - 10, y - 10, length + 20, length + 20);
+  }, 600);
+}
+setInterval(shootStar, 3000);
+</script>
+
+</body>
+</html>
