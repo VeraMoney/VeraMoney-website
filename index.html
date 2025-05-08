@@ -134,7 +134,21 @@
           50% { opacity: 1; text-shadow: 0 0 10px #ec4899, 0 0 20px #8b5cf6; }
         }
       </style>
-  
+  <style>
+    #presale {
+      min-height: 100vh; /* Full screen height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+<!--      background-color: #12181F; /* Optional: match iframe theme */-->
+    }
+
+    .iframe-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
   
 </head>
 <body class="relative">
@@ -162,6 +176,7 @@
         <li><a href="#roadmap" class="hover:text-pink-400">Roadmap</a></li>
         <li><a href="#community" class="hover:text-pink-400">Community</a></li>
         <li><a href="#about" class="hover:text-pink-400">About Us</a></li>
+        <li><a href="#presale">Presale</a></li>
       </ul>
       
       <!-- Glowing Button -->
@@ -399,6 +414,18 @@
     </a>
   </div>
 </section>
+<section id="presale">
+  <div class="iframe-wrapper">
+    <iframe
+            width="500"
+            height="510"
+            frameborder="0"
+            scrolling="no"
+            src="https://gempad.app/embed?address=0x11F2215619f68B546eBe00853c06d024558540A2&bgColor=%2312181F&fgColor=%23161D27&hasAnimation=true&hasBanner=true&hasSocialLinks=true&network=Arbitrum_One&padding=30&refer=&responsive=true&saleType=presale&theme=dark&txtColor=%23FFFFFF">
+    </iframe>
+  </div>
+</section>
+
 <!-- Moonshot Section -->
 <section id="moonshot" class="relative py-32 px-6 bg-gradient-to-b from-black via-purple-900 to-black text-center overflow-hidden">
   <!-- Animated Background Accent -->
