@@ -179,6 +179,17 @@
     .delay-400 { animation-delay: 0.4s; }
   </style>
 
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 1s ease-out both;
+    }
+  </style>
+
 
 </head>
 <body class="relative">
@@ -201,11 +212,12 @@
     <div class="hidden md:flex items-center space-x-6">
       <ul class="flex space-x-6 text-purple-300">
         <li><a href="#home" class="hover:text-pink-400">Home</a></li>
-        <li><a href="#why" class="hover:text-pink-400">Why VeraMoney</a></li>
+        <li><a href="#why" class="hover:text-pink-400">Why $VERA</a></li>
         <li><a href="#tokenomics" class="hover:text-pink-400">Tokenomics</a></li>
         <li><a href="#roadmap" class="hover:text-pink-400">Roadmap</a></li>
         <li><a href="#community" class="hover:text-pink-400">Community</a></li>
         <li><a href="#about" class="hover:text-pink-400">About Us</a></li>
+        <li><a href="#partners" class="hover:text-pink-400">Partners</a></li>
       </ul>
       <!-- Presale: Filled -->
       <a href="#presale"
@@ -571,6 +583,35 @@
   
     </div>
   </section>
+<!-- Partners Section -->
+<!-- Partners Section -->
+<section id="partners" class="py-24 px-6 bg-gradient-to-b from-black via-purple-900 to-black">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-pink-400 mb-16 tracking-wide">🤝 Our Partners</h2>
+
+    <div class="flex flex-wrap justify-center items-center gap-10 animate-fade-in">
+
+      <!-- Partner: PinkSale -->
+      <a href="https://www.pinksale.finance/launchpad/arbitrum/0xA59473c8b756194481B86df76b6A9DDb0FdBc9F9" target="_blank" rel="noopener noreferrer"
+         class="w-72 h-40 bg-white rounded-2xl flex items-center justify-center shadow-xl transform hover:scale-105 transition duration-300 border-4 border-transparent hover:border-pink-500 hover:shadow-pink-500/30">
+        <img src="pinksale.png" alt="PinkSale" class="max-h-20 object-contain" />
+      </a>
+
+      <!-- Partner: Gempad -->
+      <a href="https://gempad.app/presale/0x11F2215619f68B546eBe00853c06d024558540A2?network=Arbitrum_One" target="_blank" rel="noopener noreferrer"
+         class="w-72 h-40 bg-black rounded-2xl flex items-center justify-center shadow-xl transform hover:scale-105 transition duration-300 border-4 border-transparent hover:border-purple-500 hover:shadow-purple-500/30">
+        <img src="gempad.jpg" alt="Gempad" class="max-h-20 object-contain" />
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
   
   
