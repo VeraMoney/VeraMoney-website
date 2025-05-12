@@ -205,13 +205,16 @@
 <header class="fixed top-0 w-full bg-black bg-opacity-70 z-50 shadow-md">
   <nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
     <div class="flex items-center gap-2">
-      <img src="R_S1byM4_400x400.jpg" alt="VeraMoney Logo" class="w-10 h-10 rounded-full object-cover">
-      <span class="text-2xl font-bold text-pink-400">VeraMoney</span>
+      <a href="#home" class="flex items-center gap-2">
+        <img src="R_S1byM4_400x400.jpg" alt="VeraMoney Logo" class="w-10 h-10 rounded-full object-cover">
+        <span class="text-2xl font-bold text-pink-400">VeraMoney</span>
+      </a>
     </div>
-    
-    <div class="hidden md:flex items-center space-x-6">
-      <ul class="flex space-x-6 text-purple-300">
-        <li><a href="#home" class="hover:text-pink-400">Home</a></li>
+
+    <div class="hidden md:flex items-center gap-4">
+
+      <ul class="flex gap-4 text-purple-300">
+        <!-- <li><a href="#home" class="hover:text-pink-400">Home</a></li> -->
         <li><a href="#why" class="hover:text-pink-400">Why $VERA</a></li>
         <li><a href="#tokenomics" class="hover:text-pink-400">Tokenomics</a></li>
         <li><a href="#roadmap" class="hover:text-pink-400">Roadmap</a></li>
@@ -219,18 +222,26 @@
         <li><a href="#about" class="hover:text-pink-400">About Us</a></li>
         <li><a href="#partners" class="hover:text-pink-400">Partners</a></li>
       </ul>
+
       <!-- Presale: Filled -->
       <a href="#presale"
-         class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-6 py-3 rounded-full shadow-[0_0_10px_#ec4899,0_0_20px_#ec4899] animate-pulse transition duration-300">
+         class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-5 py-2.5 rounded-full shadow-[0_0_10px_#ec4899,0_0_20px_#ec4899] animate-pulse transition duration-300 whitespace-nowrap">
         💰 Join Presale
       </a>
 
-
       <!-- Moonshot: Outlined -->
-      <a href="#moonshot" class="border-2 border-pink-500 text-pink-400 hover:bg-pink-600 hover:text-white font-bold px-6 py-3 rounded-full transition duration-300">
+      <a href="#moonshot"
+         class="border-2 border-pink-500 text-pink-400 hover:bg-pink-600 hover:text-white font-bold px-5 py-2.5 rounded-full transition duration-300 whitespace-nowrap">
         🚀 Moonshot
       </a>
 
+      <!-- Whitepaper: Outlined -->
+      <a href="Whitepaper.pdf"
+         download
+         class="border-2 border-indigo-500 text-indigo-400 hover:bg-indigo-600 hover:text-white font-bold px-5 py-2.5 rounded-full transition duration-300 flex items-center gap-2 whitespace-nowrap">
+        <span>📄</span>
+        <span>Whitepaper</span>
+      </a>
     </div>
   </nav>
 </header>
@@ -395,9 +406,11 @@
     <li>🌐 DAO Governance & Treasury Unlocks</li>
   </ul>
    <!-- Whitepaper Coming Soon -->
-   <div class="inline-block cursor-not-allowed bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg animate-pulse">
-    📄 Whitepaper – Coming Soon
-  </div>
+  <a href="Whitepaper.pdf"
+     download
+     class="inline-block bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-pink-500/50 transition duration-300">
+    📄 Download Whitepaper
+  </a>
 </div>
 
 
